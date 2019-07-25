@@ -1,0 +1,11 @@
+{
+  "full_name": "Jean Bon",
+  "email": "jean.bon@crem.ch",
+  "github_username": "jeanbon",
+  "project_name": "Rocket Science",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "git_repository": "https://github.com/CREM-projects/{{ cookiecutter.project_slug }}.git",
+  "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
+  "use_virtualenv": "y",
+  "use_docker": "y",
+}
