@@ -1,20 +1,32 @@
-SHELL := /bin/bash
+VENV_DIR = venv
+BIN_DIR = $(VENV_DIR)/bin
 
-install requirements:
-	pip3 install -r requirements.txt
+IMAGE = jupyter-project
+CONTAINER = jupyter
 
-createvenv:
+
+help:
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
+venv:
 	virtualenv -p python3 venv
+	$(BIN_DIR)/pip install -r requirements.txt
+	$(BIN_DIR)/jupyter nbextension install https://github.com/drillan/jupyter-black/archive/master.zip --user
+	$(BIN_DIR)/jupyter nbextension enable jupyter-black-master/jupyter-black
 
-#activatevenv:
-#	source venv/bin/activate
+launch-local: ## Launch jupyter locally
+	if [ ! -d $(VENV_DIR) ]; then make venv; fi;
+	$(BIN_DIR)/jupyter notebook
 
-launchdocker:
-	docker build -t jupyter-project .
-	docker run -d -it --name jupyter -p 8888:8888 -v $(shell pwd):/home jupyter-project
-	sleep 1
+launch-docker: ## Launch jupyter with Docker
+	docker build -t $(IMAGE) .
+	docker run --rm -d -it --name $(CONTAINER) -p 8888:8888 -v $(shell pwd):/home $(IMAGE)
+	sleep 1.5
 	xdg-open http://localhost:8888/tree
 
-stopdocker:
-	docker stop jupyter
-	docker rm jupyter
+clean-docker: ## Clean the list of containers in Docker
+	docker stop $(CONTAINER)
+	docker rm $(CONTAINER)
+
+update-tree: ## Update your file structure.txt
+	tree --dirsfirst -C -I $(VENV_DIR) > structure.txt
