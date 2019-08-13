@@ -11,6 +11,7 @@ help:
 venv:
 	virtualenv -p python3 venv
 	$(BIN_DIR)/pip install -r requirements.txt
+	$(BIN_DIR)/ipython kernel install --user --name=$(VENV_DIR)
 	$(BIN_DIR)/jupyter nbextension install https://github.com/drillan/jupyter-black/archive/master.zip --user
 	$(BIN_DIR)/jupyter nbextension enable jupyter-black-master/jupyter-black
 
@@ -20,7 +21,7 @@ launch-local: ## Launch jupyter locally
 
 launch-docker: ## Launch jupyter with Docker
 	docker build -t $(IMAGE) .
-	docker run --rm -d -it --name $(CONTAINER) -p 8888:8888 -v $(shell pwd):/home $(IMAGE)
+	docker run --rm -d --name $(CONTAINER) -p 8888:8888 -v $(shell pwd):/home $(IMAGE)
 	sleep 1.5
 	xdg-open http://localhost:8888/tree
 
