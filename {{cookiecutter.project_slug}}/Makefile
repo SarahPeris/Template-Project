@@ -1,5 +1,4 @@
 {% if cookiecutter.operating_system == 'Linux' %}
-
 VENV_DIR = venv
 BIN_DIR = $(VENV_DIR)/bin
 
@@ -18,8 +17,7 @@ venv:
 	$(BIN_DIR)/jupyter nbextension install https://github.com/drillan/jupyter-black/archive/master.zip --user
 	$(BIN_DIR)/jupyter nbextension enable jupyter-black-master/jupyter-black
 
-launch-local: ## Launch jupyter locally
-	if [ ! -d $(VENV_DIR) ]; then make venv; fi;
+launch-local: venv ## Launch jupyter locally
 	$(BIN_DIR)/jupyter notebook
 
 launch-docker: ## Launch jupyter with Docker
@@ -37,7 +35,6 @@ update-tree: ## Update your file structure.txt
 
 
 {% elif cookiecutter.operating_system == 'Windows' %}
-
 IMAGE = jupyter-project
 CONTAINER = jupyter
 
