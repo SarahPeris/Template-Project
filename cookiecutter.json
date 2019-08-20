@@ -1,7 +1,7 @@
 {
   "full_name": "Jean Bon",
-  "email": "jean.bon@crem.ch",
-  "github_username": "jeanbon",
+  "email": "{{ cookiecutter.full_name.lower().replace(' ', '.') }}@crem.ch",
+  "github_username": "{{ cookiecutter.full_name.lower().replace(' ', '') }}",
   "project_name": "Rocket Science",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "git_repository": "https://github.com/CREM-projects/{{ cookiecutter.project_slug }}.git",

@@ -43,17 +43,17 @@ You can see, below, the initial structure of your project:
 {% if cookiecutter.operating_system == 'Windows' %}
 
 In order to have the Makefile working, you need to install **make**. Therefore, follow the instructions:
-	- Install *chocolatey* with PowerShell as an admin (right click on PowerShell and select "Exécuter en tant qu'administrateur"):
-		``` bash
-			Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-		```
+- Install *chocolatey* with PowerShell as an admin (right click on PowerShell and select "Exécuter en tant qu'administrateur"):
+``` bash
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+```
 
-	- Close the shell, reopen one also as an admin and enter this following command:
-		``` bash
-			choco install make -y
-		```
+- Close the shell, reopen one also as an admin and enter this following command:
+``` bash
+choco install make -y
+```
 
-	- Finally close the shell. You can now use a PowerShell without the admin rights.
+- Finally close the shell. You can now use a PowerShell without the admin rights.
 
 {% endif %}
 
