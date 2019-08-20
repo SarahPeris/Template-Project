@@ -13,7 +13,7 @@ help:
 venv:
 	virtualenv -p python3 venv
 	$(BIN_DIR)/pip install -r requirements.txt
-	$(BIN_DIR)/ipython kernel install --user --name=$(VENV_DIR)
+	$(BIN_DIR)/ipython kernel install --user --name=$(VENV_DIR) --display-name $(VENV_DIR)
 	$(BIN_DIR)/jupyter nbextension install https://github.com/drillan/jupyter-black/archive/master.zip --user
 	$(BIN_DIR)/jupyter nbextension enable jupyter-black-master/jupyter-black
 
