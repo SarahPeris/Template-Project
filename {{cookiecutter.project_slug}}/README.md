@@ -106,7 +106,7 @@ If you add new files and/or folders, update your file *structure.txt*:
 make update-tree
 ```
 
-{% endif}
+{% endif %}
 
 
 ### Using Git
