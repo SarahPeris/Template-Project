@@ -1,13 +1,1 @@
-[01;34m.[00m
-├── [01;34mdata[00m
-├── [01;34mreferences[00m
-├── [01;34mreports[00m
-├── [01;34mtools[00m
-├── Dockerfile
-├── LICENSE
-├── Makefile
-├── README.md
-├── requirements.txt
-└── structure.txt
-
-4 directories, 6 files
+Trop de param�tres - -C

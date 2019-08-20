@@ -40,6 +40,23 @@ You can see, below, the initial structure of your project:
 - Having a Docker installed on your computer
 - Having a Git installed on your computer
 
+{% if cookiecutter.operating_system == 'Windows' %}
+
+In order to have the Makefile working, you need to install **make**. Therefore, follow the instructions:
+	- Install *chocolatey* with PowerShell as an admin (right click on PowerShell and select "Exécuter en tant qu'administrateur"):
+		``` bash
+			Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+		```
+
+	- Close the shell, reopen one also as an admin and enter this following command:
+		``` bash
+			choco install make -y
+		```
+
+	- Finally close the shell. You can now use a PowerShell without the admin rights.
+
+{% endif %}
+
 ## Docker or venv?
 
 First you need to choose whether you want to use Docker or a virtual environment for your project.
@@ -79,12 +96,17 @@ Sphinx
 
 If ever you need to install new packages for your project with pip, but don't forget to update your file *requirements.txt*
 
+
+{% if cookiecutter.operating_system == 'Linux' %}
+
 ### Update your structure file
 
 If you add new files and/or folders, update your file *structure.txt*:
 ``` bash
 make update-tree
 ```
+
+{% endif}
 
 
 ### Using Git
@@ -93,3 +115,8 @@ make update-tree
 
 ### Installing and using Docker
 [Docker site](https://www.docker.com/)
+
+
+### Write your documentation with Sphinx
+[Sphinx docstring format](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html)
+[Sphinx site](https://www.sphinx-doc.org/en/1.5/index.html)

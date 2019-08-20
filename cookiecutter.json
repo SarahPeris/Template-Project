@@ -6,6 +6,5 @@
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "git_repository": "https://github.com/CREM-projects/{{ cookiecutter.project_slug }}.git",
   "open_source_license": ["MIT", "BSD-3-Clause", "No license file"],
-  "use_virtualenv": "y",
-  "use_docker": "y",
+  "operating_system": ["Windows", "Linux"]
 }
