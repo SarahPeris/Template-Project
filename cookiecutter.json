@@ -1,6 +1,6 @@
 {
   "full_name": "Jean Bon",
-  "email": "{{ cookiecutter.full_name.lower().replace(' ', '.') }}@crem.ch",
+  "email": "{{ cookiecutter.full_name.lower().replace(' ', '.') }}crem.ch",
   "github_username": "{{ cookiecutter.full_name.lower().replace(' ', '') }}",
   "project_name": "Rocket Science",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
