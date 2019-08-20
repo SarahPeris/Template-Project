@@ -23,12 +23,11 @@ launch-local: venv ## Launch jupyter locally
 launch-docker: ## Launch jupyter with Docker
 	docker build -t $(IMAGE) .
 	docker run --rm -d --name $(CONTAINER) -p 8888:8888 -v $(shell pwd):/home $(IMAGE)
-	sleep 1.5
+	@sleep 1.5
 	xdg-open http://localhost:8888/tree
 
 clean-docker: ## Clean the list of containers in Docker
 	docker stop $(CONTAINER)
-	docker rm $(CONTAINER)
 
 update-tree: ## Update your file structure.txt
 	tree --dirsfirst -C -I $(VENV_DIR) > structure.txt
