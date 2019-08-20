@@ -4,7 +4,7 @@
   "github_username": "{{ cookiecutter.full_name.lower().replace(' ', '') }}",
   "project_name": "Rocket Science",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
-  "git_repository": "https://github.com/CREM-projects/{{ cookiecutter.project_slug }}.git",
+  "git_repository": "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}.git",
   "open_source_license": ["MIT", "BSD-3-Clause", "No license file"],
   "operating_system": ["Windows", "Linux"]
 }
